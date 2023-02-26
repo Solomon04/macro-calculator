@@ -3,6 +3,8 @@ import { consultingOptions, goalOptions } from '@/constants/data'
 import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/20/solid'
 import { classNames } from '@/utils'
+import { Tooltip } from 'flowbite-react'
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/outline'
 
 type Props = {
   email: any
@@ -30,6 +32,12 @@ const CallToAction: FunctionComponent<Props> = ({
 }) => {
   return (
     <>
+      <div className='col-span-6'>
+        <h2 className='font-semibold'>
+          Please enter your name and best email address so we can send your
+          results, including a printable macronutrient document.{' '}
+        </h2>
+      </div>
       <div className='col-span-6 sm:col-span-3'>
         <label htmlFor='email' className='text-base font-medium text-gray-900'>
           Name
@@ -88,8 +96,13 @@ const CallToAction: FunctionComponent<Props> = ({
                       <span className='flex flex-col'>
                         <RadioGroup.Label
                           as='span'
-                          className='block text-sm font-medium text-gray-900'>
+                          className='inline-flex text-sm font-medium text-gray-900'>
                           {option.title}
+                          <span>
+                            <Tooltip content={option.help} placement='top'>
+                              <QuestionMarkCircleIcon className='ml-1.5 text-gray-400 h-5 w-5' />
+                            </Tooltip>
+                          </span>
                         </RadioGroup.Label>
                         <RadioGroup.Description
                           as='span'
@@ -123,7 +136,7 @@ const CallToAction: FunctionComponent<Props> = ({
       <div className='col-span-6'>
         <RadioGroup value={callToAction} onChange={setCallToAction}>
           <RadioGroup.Label className='text-base font-medium text-gray-900'>
-            How can we help you reach your goals?
+            What can we help you with?
           </RadioGroup.Label>
 
           <div className='mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4'>
@@ -173,7 +186,8 @@ const CallToAction: FunctionComponent<Props> = ({
       </div>
       <div className='col-span-6'>
         <label className='text-base font-medium text-gray-900'>
-          Are you interested in one on one coaching with a verified dietitian?
+          Are you interested in a one on one free initial health assessment with
+          a Registered Dietitian that specializes in Weight Loss?
         </label>
         <fieldset className='mt-4'>
           <legend className='sr-only'>Notification method</legend>

@@ -39,26 +39,23 @@ export default function Home() {
   const [age, setAge] = useState(18)
   const [height, setHeight] = useState(70)
   const [weight, setWeight] = useState(180)
-  const [activityLevel, setActivityLevel] = useState(activityLevelOptions[0])
+  const [activityLevel, setActivityLevel] = useState()
   const [tdee, setTdee] = useState(0)
   const [bmr, setBmr] = useState<number | undefined>()
   const [bodyFatPercentage, setBodyFatPercentage] = useState()
   const [isCalculated] = useMemo(() => {
     return [bmr && tdee]
   }, [bmr, tdee])
-  const [macroTrackingExperience, setMacroTrackingExperience] = useState(
-    macroExperienceOptions[0]
-  )
-  const [weightliftingExperience, setWeightliftingExperience] = useState(
-    weightliftingExperienceOptions[0]
-  )
+  const [macroTrackingExperience, setMacroTrackingExperience] = useState()
+  const [weightliftingExperience, setWeightliftingExperience] = useState()
   const [dietPlans, setDietPlans] = useState<DietPlan[]>([])
-  const [goal, setGoal] = useState(goalOptions[0])
-  const [callToAction, setCallToAction] = useState(consultingOptions[0])
+  const [goal, setGoal] = useState<WeightGoal | undefined>()
+  const [callToAction, setCallToAction] = useState()
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [wantsConsulting, setWantsConsulting] = useState(true)
   const [submitting, setSubmitting] = useState(false)
+  const [isCompleted, setIsComplete] = useState(false)
 
   const incrementStep = () => {
     let stepIndex = currentStep.id - 1
@@ -73,6 +70,7 @@ export default function Home() {
     }
 
     setSubmitting(true)
+    setIsComplete(true)
 
     const { tdee, bmr, diets } = calculateTotalDailyExpenditure(
       weight,
@@ -83,37 +81,39 @@ export default function Home() {
       unit
     )
 
-    let balanced = balancedFormula(tdee + goal.net)
-    console.log({ maintain: balancedFormula(tdee), balanced })
-    let lowCarb = lowCarbFormula(tdee + goal.net)
-    let highCarb = highCarbFormula(tdee + goal.net)
-    let highProtein = highProteinFormula(tdee + goal.net)
-    let keto = ketoFormula(tdee + goal.net)
+    if (goal) {
+      let balanced = balancedFormula(tdee + goal.net)
+      console.log({ maintain: balancedFormula(tdee), balanced })
+      let lowCarb = lowCarbFormula(tdee + goal.net)
+      let highCarb = highCarbFormula(tdee + goal.net)
+      let highProtein = highProteinFormula(tdee + goal.net)
+      let keto = ketoFormula(tdee + goal.net)
 
-    setDietPlans([balanced, lowCarb, highCarb, keto])
+      setDietPlans([balanced, lowCarb, highCarb, keto])
 
-    // Send email to the backend
-    console.log('Send email to ConvertKIT via API', {
-      email: email,
-      name: name,
-    })
-    console.log('Ping sendgrid dynamic template via API', {
-      email: email,
-      tdee: tdee,
-      wantsConsulting: wantsConsulting,
-      goal: goal,
-      callToAction: callToAction,
-      diets: {
-        balanced,
-        lowCarb,
-        highCarb,
-        highProtein,
-        keto,
-      },
-    })
+      // Send email to the backend
+      console.log('Send email to ConvertKIT via API', {
+        email: email,
+        name: name,
+      })
+      console.log('Ping sendgrid dynamic template via API', {
+        email: email,
+        tdee: tdee,
+        wantsConsulting: wantsConsulting,
+        goal: goal,
+        callToAction: callToAction,
+        diets: {
+          balanced,
+          lowCarb,
+          highCarb,
+          highProtein,
+          keto,
+        },
+      })
 
-    setTdee(tdee)
-    setBmr(bmr)
+      setTdee(tdee)
+      setBmr(bmr)
+    }
   }
   const handleStepper = (step: any) => {
     setCurrentStep(step)
@@ -133,6 +133,7 @@ export default function Home() {
       </Head>
       <main className='max-w-5xl mx-auto py-12 px-4 sm:px-0'>
         <Stepper
+          isComplete={isCompleted}
           steps={steps}
           onClick={handleStepper}
           currentStep={currentStep}

@@ -25,3 +25,16 @@ type DietPlan = {
   protein: number
   calories: number
 }
+
+// id: 5,
+//     title: 'Slow weight gain',
+//     description: 'Gain about  0.5lb per week', // 250 daily surplus
+//     net: 250,
+
+type WeightGoal = {
+  id: number
+  title: string
+  description: string
+  net: number
+  help: string
+}

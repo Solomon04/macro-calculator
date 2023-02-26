@@ -3,6 +3,9 @@ import { RadioGroup } from '@headlessui/react'
 import { activityLevelOptions } from '@/constants/data'
 import { classNames } from '@/utils'
 import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import Button from '@/components/Button'
+import { Tooltip } from 'flowbite-react'
+import { QuestionMarkCircleIcon } from '@heroicons/react/24/solid'
 
 type Props = {
   activityLevel: any
@@ -18,7 +21,7 @@ const TotalActivity: FunctionComponent<Props> = ({
       <div className='col-span-6'>
         <RadioGroup value={activityLevel} onChange={setActivityLevel}>
           <RadioGroup.Label className='text-base font-medium text-gray-900'>
-            What is your current activity level?
+            What are your day-to-day activity levels?
           </RadioGroup.Label>
 
           <div className='mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4'>

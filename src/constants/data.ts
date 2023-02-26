@@ -35,77 +35,79 @@ export const activityLevelOptions: ActivityLevel[] = [
   {
     id: 1,
     title: 'Sedentary',
-    description: 'Desk job or work from home',
+    description: 'Very rarely exercise and no physical job.',
     value: 1.2,
   },
   {
     id: 2,
     title: 'Lightly Active',
-    description: 'Exercising 1-2 days a week',
-    value: 1.2,
-  },
-  {
-    id: 3,
-    title: 'Lightly Active',
-    description: 'Exercising 1-2 days a week',
+    description:
+      'Exercise 1-2 days per week and have a somewhat physical job or active life.',
     value: 1.375,
   },
   {
-    id: 4,
+    id: 3,
     title: 'Moderately Active',
-    description: 'Exercising 3-5 days a week',
+    description: 'Exercise 3-5 days and active lifestyle.',
     value: 1.55,
   },
   {
-    id: 5,
+    id: 4,
     title: 'Heavy Active',
-    description: 'Exercising 6-7 days a week',
+    description:
+      'Exercise 6-7 days per week and a physical job or active life. ',
     value: 1.725,
   },
   {
-    id: 6,
+    id: 5,
     title: 'Athlete',
     description: 'Exercising up to twice a day',
     value: 1.9,
   },
 ]
 
-export const goalOptions = [
+export const goalOptions: WeightGoal[] = [
   {
     id: 1,
     title: 'Rapid Weight Loss',
-    description: 'Lose about 2lbs per week', // 1000 daily deficit
+    description: 'Lose about 2lbs (1kg) per week', // 1000 daily deficit
     net: -1000,
+    help: 'Rapid weight loss should be used with caution. Generally, best for people who need to lose quite a lot of weight but not for people who just need to lose a little bit of weight. If you are already lean and trying to cut weight, this isn’t a good option.',
   },
   {
     id: 2,
     title: 'Moderate Weight Loss',
-    description: 'Lose about  1lb per week', // 500 daily deficit
+    description: 'Lose about 1lb (0.5kg) per week', // 500 daily deficit
     net: -500,
+    help: 'A perfect option for those who want to cut fat gradually and maintain as much muscle mass during a slight calorie deficit. Much easier to adhere to this weight loss goal and long-term sustainability.',
   },
   {
     id: 3,
     title: 'Slow Weight Loss',
-    description: 'Lose about 0.5lb per week', // 250 daily deficit
+    description: 'Lose about 0.5lb (0.25kg) per week', // 250 daily deficit
     net: -250,
+    help: 'Ideal for those who are beginner weightlifters or hard gainers. Those who are looking to maximize muscle growth potential for size and strength development. You most likely will experience an increase in body fat.',
   },
   {
     id: 4,
     title: 'Maintain Weight',
     description: 'Stay the same size',
     net: 0,
+    help: 'You’ve reached your ideal body goals and want to maintain your current muscle mass and body fat percentage.',
   },
   {
     id: 5,
     title: 'Slow weight gain',
-    description: 'Gain about  0.5lb per week', // 250 daily surplus
+    description: 'Gain about 0.5lb (0.25kg) per week', // 250 daily surplus
     net: 250,
+    help: ' Perfect for those who want to maximize muscle growth recovery while minimizing the potential of gaining body fat. ',
   },
   {
     id: 6,
     title: 'Moderate weight gain',
-    description: 'Gain about 1lb per week', // 500 daily surplus
+    description: 'Gain about 1lb (0.5kg) per week', // 500 daily surplus
     net: 500,
+    help: 'Ideal for those who are beginner weightlifters or hard gainers. Those who are looking to maximize muscle growth potential for size and strength development. You most likely will experience an increase in body fat.',
   },
 ]
 
@@ -140,18 +142,19 @@ export const macroExperienceOptions: MacroSelectOption[] = [
   {
     id: 1,
     title: 'Beginner',
-    description: 'I have never tracked macros and barely understand them',
+    description: 'I have never tracked macros and barely understand them.',
   },
   {
     id: 2,
     title: 'Intermediate',
     description:
-      'I know about a little bit about macros and may have done a little tracking',
+      'I know what macros are and I am somewhat confident in tracking them.',
   },
   {
     id: 3,
     title: 'Advanced',
-    description: 'I have been tracking macros and can teach others',
+    description:
+      'I have been tracking my macros for years and teaching others how.',
   },
 ]
 
@@ -159,14 +162,19 @@ export const weightliftingExperienceOptions = [
   {
     id: 1,
     title: 'Beginner',
+    description: "I'm a complete noob and just starting to learn.",
   },
   {
     id: 2,
     title: 'Intermediate',
+    description:
+      "I've been training for 1-2 years and know somewhat about nutrition.\n",
   },
   {
     id: 3,
     title: 'Advanced',
+    description:
+      "I'm a seasoned veteran and know my way around training and nutrition.",
   },
 ]
 

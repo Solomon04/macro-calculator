@@ -27,7 +27,7 @@ const PastExperience: FunctionComponent<Props> = ({
           value={weightliftingExperience}
           onChange={setWeightliftingExperience}>
           <RadioGroup.Label className='text-base font-medium text-gray-900'>
-            What is your experience with lifting weights?
+            What is your experience with training and nutrition?
           </RadioGroup.Label>
 
           <div className='mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4'>
@@ -51,6 +51,11 @@ const PastExperience: FunctionComponent<Props> = ({
                           className='block text-sm font-medium text-gray-900'>
                           {option.title}
                         </RadioGroup.Label>
+                        <RadioGroup.Description
+                          as='span'
+                          className='mt-1 flex items-center text-sm text-gray-500'>
+                          {option.description}
+                        </RadioGroup.Description>
                       </span>
                     </span>
                     <CheckCircleIcon

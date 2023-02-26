@@ -10,9 +10,15 @@ type Props = {
   steps: Step[]
   onClick: (step: Step) => void
   currentStep: Step
+  isComplete: boolean
 }
 
-const Stepper: FunctionComponent<Props> = ({ currentStep, steps, onClick }) => {
+const Stepper: FunctionComponent<Props> = ({
+  currentStep,
+  steps,
+  onClick,
+  isComplete,
+}) => {
   return (
     <nav aria-label='Progress'>
       <ol
@@ -20,7 +26,7 @@ const Stepper: FunctionComponent<Props> = ({ currentStep, steps, onClick }) => {
         className='divide-y divide-gray-300 rounded-md border border-gray-300 md:flex md:divide-y-0'>
         {steps.map((step, stepIdx) => (
           <li key={step.name} className='relative md:flex md:flex-1'>
-            {currentStep.id > step.id ? (
+            {currentStep.id > step.id || isComplete ? (
               <button
                 onClick={() => onClick(step)}
                 className='group flex w-full items-center'>
