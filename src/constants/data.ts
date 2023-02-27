@@ -36,7 +36,7 @@ export const activityLevelOptions: ActivityLevel[] = [
   {
     id: 1,
     title: 'Sedentary',
-    description: 'Very rarely exercise and no physical job.',
+    description: 'Very rarely exercise and a non physical job.',
     value: 1.2,
   },
   {
@@ -56,13 +56,13 @@ export const activityLevelOptions: ActivityLevel[] = [
     id: 4,
     title: 'Heavily Active',
     description:
-      'Exercise 6-7 days per week and a physical job or active life. ',
+      'Exercise 6-7 days per week and a physical job or active life.',
     value: 1.725,
   },
   {
     id: 5,
     title: 'Athlete Active',
-    description: 'Exercising up to twice a day',
+    description: 'Intense training 1-2 times per day every day.',
     value: 1.9,
   },
 ]
@@ -71,42 +71,42 @@ export const goalOptions: WeightGoal[] = [
   {
     id: 1,
     title: 'Rapid Weight Loss',
-    description: 'Lose around 2 lbs (1 kg) per week', // 1000 daily deficit
+    description: 'Lose around 2 lbs (1 kg) per week.', // 1000 daily deficit
     net: -1000,
     help: 'Rapid weight loss should be used with caution. Generally, best for people who need to lose quite a lot of weight but not for people who just need to lose a little bit of weight. If you are already lean and trying to cut weight, this isn’t a good option.',
   },
   {
     id: 2,
     title: 'Moderate Weight Loss',
-    description: 'Lose about 1lb (0.5kg) per week', // 500 daily deficit
+    description: 'Lose around 1 lb (0.5 kg) per week.', // 500 daily deficit
     net: -500,
-    help: 'A perfect option for those who want to cut fat gradually and maintain as much muscle mass during a slight calorie deficit. Much easier to adhere to this weight loss goal and long-term sustainability.',
+    help: 'One of the most popular weight loss goals for most people. It achieves great results, is much easier to adhere to, and is less likely to lose muscle mass.',
   },
   {
     id: 3,
     title: 'Slow Weight Loss',
-    description: 'Lose about 0.5lb (0.25kg) per week', // 250 daily deficit
+    description: 'Lose around 0.5 lb (0.25 kg) per week.', // 250 daily deficit
     net: -250,
     help: 'A perfect option for those who want to cut fat gradually and maintain as much muscle mass during a slight calorie deficit. Much easier to adhere to this weight loss goal and long-term sustainability.',
   },
   {
     id: 4,
     title: 'Maintain Weight',
-    description: 'Stay the same size',
+    description: 'Stay the same size.',
     net: 0,
     help: 'You’ve reached your ideal body goals and want to maintain your current muscle mass and body fat percentage.',
   },
   {
     id: 5,
     title: 'Slow Weight Gain',
-    description: 'Gain about 0.5lb (0.25kg) per week', // 250 daily surplus
+    description: 'Gain about 0.5lb (0.25kg) per week.', // 250 daily surplus
     net: 250,
     help: 'Perfect for those who want to maximize muscle growth recovery while minimizing the potential of gaining body fat.',
   },
   {
     id: 6,
     title: 'Moderate Weight Gain',
-    description: 'Gain about 1lb (0.5kg) per week', // 500 daily surplus
+    description: 'Gain around 1 lb (0.5 kg) per week.', // 500 daily surplus
     net: 500,
     help: 'Ideal for those who are beginner weightlifters or hard gainers. Those who are looking to maximize muscle growth potential for size and strength development. You most likely will experience an increase in body fat.',
   },
@@ -115,15 +115,15 @@ export const goalOptions: WeightGoal[] = [
 export const consultingOptions: ConsultingOption[] = [
   {
     id: 1,
-    title: 'Step by Step Instructions',
+    title: 'Meal Planning',
   },
   {
     id: 2,
-    title: 'Meal Plan & Recipes',
+    title: 'Weight Loss Coaching',
   },
   {
     id: 3,
-    title: 'Macronutrient Coaching',
+    title: 'Diet Consultation',
   },
   {
     id: 4,
