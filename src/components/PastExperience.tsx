@@ -1,4 +1,10 @@
-import { FunctionComponent } from 'react'
+import {
+  Dispatch,
+  FunctionComponent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react'
 import {
   macroExperienceOptions,
   weightliftingExperienceOptions,
@@ -12,6 +18,7 @@ type Props = {
   setWeightliftingExperience: any
   macroTrackingExperience: any
   setMacroTrackingExperience: any
+  isValid: (valid: boolean) => void
 }
 
 const PastExperience: FunctionComponent<Props> = ({
@@ -19,7 +26,17 @@ const PastExperience: FunctionComponent<Props> = ({
   setWeightliftingExperience,
   macroTrackingExperience,
   setMacroTrackingExperience,
+  isValid,
 }) => {
+  useEffect(() => {
+    isValid(!!weightliftingExperience && !!macroTrackingExperience)
+  }, [
+    weightliftingExperience,
+    setMacroTrackingExperience,
+    macroTrackingExperience,
+    setWeightliftingExperience,
+  ])
+
   return (
     <>
       <div className='col-span-6'>

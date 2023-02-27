@@ -30,7 +30,8 @@ export const imperialHeights = [
   { key: '6ft 11in', value: 83 },
   { key: '7ft 0in', value: 84 },
 ]
-
+// High protein diet
+//
 export const activityLevelOptions: ActivityLevel[] = [
   {
     id: 1,
@@ -53,14 +54,14 @@ export const activityLevelOptions: ActivityLevel[] = [
   },
   {
     id: 4,
-    title: 'Heavy Active',
+    title: 'Heavily Active',
     description:
       'Exercise 6-7 days per week and a physical job or active life. ',
     value: 1.725,
   },
   {
     id: 5,
-    title: 'Athlete',
+    title: 'Athlete Active',
     description: 'Exercising up to twice a day',
     value: 1.9,
   },
@@ -70,7 +71,7 @@ export const goalOptions: WeightGoal[] = [
   {
     id: 1,
     title: 'Rapid Weight Loss',
-    description: 'Lose about 2lbs (1kg) per week', // 1000 daily deficit
+    description: 'Lose around 2 lbs (1 kg) per week', // 1000 daily deficit
     net: -1000,
     help: 'Rapid weight loss should be used with caution. Generally, best for people who need to lose quite a lot of weight but not for people who just need to lose a little bit of weight. If you are already lean and trying to cut weight, this isn’t a good option.',
   },
@@ -86,7 +87,7 @@ export const goalOptions: WeightGoal[] = [
     title: 'Slow Weight Loss',
     description: 'Lose about 0.5lb (0.25kg) per week', // 250 daily deficit
     net: -250,
-    help: 'Ideal for those who are beginner weightlifters or hard gainers. Those who are looking to maximize muscle growth potential for size and strength development. You most likely will experience an increase in body fat.',
+    help: 'A perfect option for those who want to cut fat gradually and maintain as much muscle mass during a slight calorie deficit. Much easier to adhere to this weight loss goal and long-term sustainability.',
   },
   {
     id: 4,
@@ -97,14 +98,14 @@ export const goalOptions: WeightGoal[] = [
   },
   {
     id: 5,
-    title: 'Slow weight gain',
+    title: 'Slow Weight Gain',
     description: 'Gain about 0.5lb (0.25kg) per week', // 250 daily surplus
     net: 250,
-    help: ' Perfect for those who want to maximize muscle growth recovery while minimizing the potential of gaining body fat. ',
+    help: 'Perfect for those who want to maximize muscle growth recovery while minimizing the potential of gaining body fat.',
   },
   {
     id: 6,
-    title: 'Moderate weight gain',
+    title: 'Moderate Weight Gain',
     description: 'Gain about 1lb (0.5kg) per week', // 500 daily surplus
     net: 500,
     help: 'Ideal for those who are beginner weightlifters or hard gainers. Those who are looking to maximize muscle growth potential for size and strength development. You most likely will experience an increase in body fat.',

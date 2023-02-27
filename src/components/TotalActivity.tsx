@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useEffect } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import { activityLevelOptions } from '@/constants/data'
 import { classNames } from '@/utils'
@@ -10,12 +10,18 @@ import { QuestionMarkCircleIcon } from '@heroicons/react/24/solid'
 type Props = {
   activityLevel: any
   setActivityLevel: any
+  isValid: (valid: boolean) => void
 }
 
 const TotalActivity: FunctionComponent<Props> = ({
   activityLevel,
   setActivityLevel,
+  isValid,
 }) => {
+  useEffect(() => {
+    isValid(!!activityLevel)
+  }, [activityLevel, setActivityLevel])
+
   return (
     <>
       <div className='col-span-6'>

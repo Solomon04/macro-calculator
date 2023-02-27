@@ -37,7 +37,7 @@ export default function Home() {
   const [unit, setUnit] = useState<Unit>('Imperial')
   const [sex, setSex] = useState<Sex>('Male')
   const [age, setAge] = useState(18)
-  const [height, setHeight] = useState(70)
+  const [height, setHeight] = useState(72)
   const [weight, setWeight] = useState(180)
   const [activityLevel, setActivityLevel] = useState()
   const [tdee, setTdee] = useState(0)
@@ -46,16 +46,22 @@ export default function Home() {
   const [isCalculated] = useMemo(() => {
     return [bmr && tdee]
   }, [bmr, tdee])
-  const [macroTrackingExperience, setMacroTrackingExperience] = useState()
-  const [weightliftingExperience, setWeightliftingExperience] = useState()
+  const [macroTrackingExperience, setMacroTrackingExperience] = useState<
+    any | null
+  >(null)
+  const [weightliftingExperience, setWeightliftingExperience] = useState<
+    any | null
+  >(null)
   const [dietPlans, setDietPlans] = useState<DietPlan[]>([])
-  const [goal, setGoal] = useState<WeightGoal | undefined>()
+  const [goal, setGoal] = useState<WeightGoal | null>(null)
   const [callToAction, setCallToAction] = useState()
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
-  const [wantsConsulting, setWantsConsulting] = useState(true)
+  const [wantsConsulting, setWantsConsulting] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [isCompleted, setIsComplete] = useState(false)
+  const [isValid, setIsValid] = useState(false)
+  // const [isValid, setIsValid] = useState(false)
 
   const incrementStep = () => {
     let stepIndex = currentStep.id - 1
@@ -152,6 +158,7 @@ export default function Home() {
                     setWeightliftingExperience={setWeightliftingExperience}
                     macroTrackingExperience={macroTrackingExperience}
                     setMacroTrackingExperience={setMacroTrackingExperience}
+                    isValid={(valid: boolean) => setIsValid(valid)}
                   />
                 ) : null}
 
@@ -176,6 +183,7 @@ export default function Home() {
                   <TotalActivity
                     activityLevel={activityLevel}
                     setActivityLevel={setActivityLevel}
+                    isValid={(valid: boolean) => setIsValid(valid)}
                   />
                 ) : null}
 
@@ -191,12 +199,13 @@ export default function Home() {
                     setCallToAction={setCallToAction}
                     name={name}
                     setName={setName}
+                    isValid={(valid: boolean) => setIsValid(valid)}
                   />
                 ) : null}
               </div>
 
               <div className='flex items-center justify-end mt-5 space-x-4'>
-                <Button variant='solid' type='submit'>
+                <Button disabled={!isValid} variant='solid' type='submit'>
                   {lastStep ? 'See Results' : 'Next'}{' '}
                   <ArrowRightCircleIcon className='w-5 h-5 ml-1 stroke-2' />
                 </Button>

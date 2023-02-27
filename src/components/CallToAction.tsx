@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useEffect } from 'react'
 import { consultingOptions, goalOptions } from '@/constants/data'
 import { RadioGroup } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/20/solid'
@@ -17,6 +17,7 @@ type Props = {
   setCallToAction: any
   wantsConsulting: any
   setWantsConsulting: any
+  isValid: (valid: boolean) => void
 }
 const CallToAction: FunctionComponent<Props> = ({
   wantsConsulting,
@@ -29,7 +30,11 @@ const CallToAction: FunctionComponent<Props> = ({
   goal,
   name,
   setName,
+  isValid,
 }) => {
+  useEffect(() => {
+    isValid(!!goal && !!callToAction)
+  }, [callToAction, setCallToAction, goal, setGoal])
   return (
     <>
       <div className='col-span-6'>
