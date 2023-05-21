@@ -182,27 +182,20 @@ export const weightliftingExperienceOptions = [
 export const steps = [
   {
     id: 1,
-    name: 'Your Experience',
-    description: 'Experience with macros & strength training.',
-    href: '#',
-    status: 'complete',
-  },
-  {
-    id: 2,
     name: 'Physical Attributes',
     description: 'Cursus semper viverra.',
     href: '#',
     status: 'current',
   },
   {
-    id: 3,
+    id: 2,
     name: 'Activity Level',
     description: 'Penatibus eu quis ante.',
     href: '#',
     status: 'upcoming',
   },
   {
-    id: 4,
+    id: 3,
     name: 'Your goals',
     description: 'Penatibus eu quis ante.',
     href: '#',

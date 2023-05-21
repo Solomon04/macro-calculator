@@ -10,11 +10,10 @@ const DietTable: FunctionComponent<Props> = ({ dietPlans }) => {
       <div className='my-5'>
         <h1 className='font-semibold text-2xl'>Here are your results!</h1>
         <p className='text-gray-600'>
-          In just a few minutes, you should receive your macronutrient profile
-          delivered to your inbox. We have calculated your calories and popular
-          macro splits dependent on what diet you may follow. Most experts
-          recommend following a well-balanced diet plan to make sure you receive
-          adequate macronutrients for a healthy adult.
+          We have calculated your calories and popular macro splits dependent on
+          what diet you may follow. Most experts recommend following a
+          well-balanced diet plan to make sure you receive adequate
+          macronutrients for a healthy adult.
         </p>
       </div>
 
