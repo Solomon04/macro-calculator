@@ -9,12 +9,6 @@ const DietTable: FunctionComponent<Props> = ({ dietPlans }) => {
     <>
       <div className='my-5'>
         <h1 className='font-semibold text-2xl'>Here are your results!</h1>
-        <p className='text-gray-600'>
-          We have calculated your calories and popular macro splits dependent on
-          what diet you may follow. Most experts recommend following a
-          well-balanced diet plan to make sure you receive adequate
-          macronutrients for a healthy adult.
-        </p>
       </div>
 
       <div className='overflow-x-auto'>
