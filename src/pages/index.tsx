@@ -55,6 +55,7 @@ export default function Home() {
   const [submitting, setSubmitting] = useState(false)
   const [isCompleted, setIsComplete] = useState(false)
   const [isValid, setIsValid] = useState(true)
+  const [calories, setCalories] = useState(0)
   // const [isValid, setIsValid] = useState(false)
 
   const incrementStep = () => {
@@ -83,6 +84,7 @@ export default function Home() {
 
     if (goal) {
       let balanced = balancedFormula(tdee + goal.net)
+      setCalories(balanced.calories)
       console.log({ maintain: balancedFormula(tdee), balanced })
       let lowCarb = lowCarbFormula(tdee + goal.net)
       let highCarb = highCarbFormula(tdee + goal.net)
@@ -125,7 +127,7 @@ export default function Home() {
         <div className=''>
           {/*Results*/}
           {isCalculated && dietPlans.length > 0 ? (
-            <DietTable dietPlans={dietPlans} />
+            <DietTable calories={calories} />
           ) : (
             <form onSubmit={(e) => handleSubmit(e)} className='mt-5'>
               <div className='grid grid-cols-1 sm:grid-cols-6 gap-8'>
